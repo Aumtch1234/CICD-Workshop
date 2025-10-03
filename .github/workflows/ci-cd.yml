@@ -50,21 +50,21 @@ jobs:
         run: docker build -t t3-trpc-app:latest .
 
       - name: Create app directory if not exists
-        run: mkdir -p ~/Documents/CI-CD/workflow-cicd
+        run: mkdir -p ~/workshop-ku/t3-app
 
       - name: Stop existing containers
         run: |
-          cd ~/Documents/CI-CD/workflow-cicd
+          cd ~/workshop-ku/t3-app
           docker-compose down || true
 
       - name: Start new containers
         run: |
-          cd ~/Documents/CI-CD/workflow-cicd
+          cd ~/workshop-ku/t3-app
           docker-compose up -d
 
       - name: Show deployment status
         run: |
-          cd ~/Documents/CI-CD/workflow-cicd
+          cd ~/workshop-ku/t3-app
           docker-compose ps
           docker-compose logs --tail=20
 
